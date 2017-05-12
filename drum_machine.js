@@ -1,3 +1,7 @@
+let NanoTimer = require('nanotimer');
+let timer = new NanoTimer();
+let play = require('play');
+
 const ONE_MINUTE = 60000;
 
 const BPM = ONE_MINUTE / 120;
@@ -31,7 +35,6 @@ TRACK[14] = [KIT.OH, KIT.CH];
 TRACK[15] = [KIT.CH];
 
 let counter = 0;
-let play = require('play');
 let player = function() {
 
   var samples = TRACK[counter];
@@ -49,4 +52,4 @@ let player = function() {
 }
 
 
-setInterval(player, STEP);
+timer.setInterval(player,'', STEP + 'm');
